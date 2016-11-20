@@ -1,0 +1,67 @@
+
+<!-- saved from url=(0065)http://powersed.hmjgg3htma.us-east-1.elasticbeanstalk.com/mentors -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="chrome-extension://aadgmnobpdmgmigaicncghmmoeflnamj/ng-inspector.js"></script><meta name="chromesniffer" id="chromesniffer_meta" content="{}"><script type="text/javascript" src="chrome-extension://homgcnaoacgigpkkljjjekpignblkeae/detector.js"></script></head><body data-pinterest-extension-installed="cr2.0.5"><link rel="stylesheet" type="text/css" href="chrome-extension://chklaanhfefbnpoihckbnefhakgolnmc/jsonview-core.css"><style>body {
+  white-space: pre;
+  font-family: monospace;
+}
+
+.property {
+  font-weight: bold;
+}
+
+.type-null {
+  color: gray;
+}
+
+.type-boolean {
+  color: firebrick;
+}
+
+.type-number {
+  color: blue;
+}
+
+.type-string {
+  color: green;
+}
+
+.callback-function {
+  color: gray;
+}
+
+.collapser:after {
+  content: "-";
+}
+
+.collapsed > .collapser:after {
+  content: "+";
+}
+
+.ellipsis:after {
+  content: " … ";
+}
+
+.collapsible {
+  margin-left: 2em;
+}
+
+.hoverable {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 2px;
+}
+
+.hovered {
+  background-color: rgba(235, 238, 249, 1);  
+}
+
+.collapser {
+  padding-right: 6px;
+  padding-left: 6px;
+}</style><div id="json"><div class="collapser"></div>[<span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable"><div class="collapser"></div>{<span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable"><span class="property">summary</span>: <span class="type-string">"We empower young women to succeed in math, science &amp; technology. "</span>,</div></li><li><div class="hoverable"><span class="property">lastName</span>: <span class="type-string">"Education"</span>,</div></li><li><div class="hoverable"><span class="property">id</span>: <span class="type-string">"VjiTqNNzWE"</span>,</div></li><li><div class="hoverable"><span class="property">title</span>: <span class="type-string">"Founder at Powers Education"</span>,</div></li><li><div class="hoverable"><span class="property">pictureUrl</span>: <span class="type-string">"</span><a href="https://media.licdn.com/mpr/mprx/0_a4Jv4EDM3XAV5Z3O34iR1j8M3vCU8w17apSRY0ZMkBtV8UTOuV7zxJ2ZF5ZQ_WtxX4TqPY742q1sQ7D7TwpWrYmqWq1RQ7L1TwpnRxUJCz6BuMO7DVE4UIvHdTdIf7tGHHZMyDcl1_A">https://media.licdn.com/mpr/mprx/0_a4Jv4EDM3XAV5Z3O34iR1j8M3vCU8w17apSRY0ZMkBtV8UTOuV7zxJ2ZF5ZQ_WtxX4TqPY742q1sQ7D7TwpWrYmqWq1RQ7L1TwpnRxUJCz6BuMO7DVE4UIvHdTdIf7tGHHZMyDcl1_A</a><span class="type-string">"</span>,</div></li><li><div class="hoverable"><span class="property">firstName</span>: <span class="type-string">"Powers"</span></div></li></ul>},</div></li><li><div class="hoverable"><div class="collapser"></div>{<span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable"><span class="property">title</span>: <span class="type-string">"Data Scientist at Brandwatch"</span>,</div></li><li><div class="hoverable"><span class="property">lastName</span>: <span class="type-string">"Siegel"</span>,</div></li><li><div class="hoverable"><span class="property">id</span>: <span class="type-string">"u4VpEyM5MZ"</span>,</div></li><li><div class="hoverable"><span class="property">pictureUrl</span>: <span class="type-string">"</span><a href="https://media.licdn.com/mpr/mprx/0_YMl-NNSW9bwfuBp_AHL-KkfWnPypovlOcHW--84WvPlgo5GiZ7w-stfW1_u3uc_GqMFPpiudJqUjWlGYcoNay8SLyqUyWlQGNoNABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOrx_VzN7">https://media.licdn.com/mpr/mprx/0_YMl-NNSW9bwfuBp_AHL-KkfWnPypovlOcHW--84WvPlgo5GiZ7w-stfW1_u3uc_GqMFPpiudJqUjWlGYcoNay8SLyqUyWlQGNoNABTZHBzmr_bgY4UGxcznJpTTuhlA1jWrOrx_VzN7</a><span class="type-string">"</span>,</div></li><li><div class="hoverable"><span class="property">summary</span>: <span class="type-string">"I am a data scientist at Brandwatch, a social media monitoring platform. My primary focus is on modeling, analyzing, and visualizing large-scale social networks.
+
+Before Brandwatch I was a postdoc in the math department at Columbia University. I earned my PhD in math from Penn State; my research lay at the intersection of geometry, topology, and operator K-theory. I became interested in data science while at Columbia, particularly as a source of applications of spectral theory and large-scale geometry.
+
+I've been coding off and on since middle school, though without much formal education. Unless staring at examples and asking stackoverflow questions counts as "education"."</span>,</div></li><li><div class="hoverable"><span class="property">firstName</span>: <span class="type-string">"Paul"</span></div></li></ul>}</div></li></ul>]</div><div class="status"></div><div class="toolbox"><span title="expand all">+</span><span title="reduce all">-</span><a target="_blank" href="view-source:http://powersed.hmjgg3htma.us-east-1.elasticbeanstalk.com/mentors">View source</a><img title="options" src="chrome-extension://chklaanhfefbnpoihckbnefhakgolnmc/options.png"></div></body></html>

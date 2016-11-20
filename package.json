@@ -1,0 +1,33 @@
+{
+  "name": "powersed",
+  "version": "1.0.0",
+  "description": "<h1>Powers Education</h1>\r  This repository contains a simple Flask application for powering a matching app between clients (students and mentors) of Powers Education.  It also includes some basic frontend code for authenticating and retrieving profile information from LinkedIn, as well as a very basic student view of the mentor data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pwsiegel/powersed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pwsiegel/powersed/issues"
+  },
+  "homepage": "https://github.com/pwsiegel/powersed",
+  "devDependencies": {
+    "backbone": "^1.3.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.10",
+    "underscore": "^1.8.3"
+  }
+}

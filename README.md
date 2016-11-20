@@ -1,0 +1,2 @@
+ <h1>Powers Education</h1>
+ This repository contains a simple Flask application for powering a matching app between clients (students and mentors) of Powers Education.  It also includes some basic frontend code for authenticating and retrieving profile information from LinkedIn, as well as a very basic student view of the mentor data.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="//platform.linkedin.com/in.js">
+	    api_key:   [omitted]
+	    onLoad:    callback
+	</script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<h1>Powers Education - Mentor Registration</h1>
+	</head>
+<body>
+	<div>
+		<p>Click the button below to authenticate with Linkedin.</p>
+		<button type="button" onclick="linkedinAuth()">Authenticate with LinkedIn</button>
+	</div>
+	<br><br>
+	<div>
+		<div id="picture"></div>
+		<div id="name"></div>
+		<div id="title"></div>
+		<div id="summary"></div>
+	</div>
+	<div id="submit"></div>
+	<br>
+	<div id="submitted"></div>
+</body>
+<script>
+	var user_id, firstName, lastName, title, summary, pictureUrl;
+
+	function callback() {
+
+	}
+
+	function linkedinAuth() {
+		IN.User.authorize(linkedinAuthComplete);
+	}
+
+	function linkedinAuthComplete() {
+		IN.API.Raw("people/~?format=json").result(getBasicInfo);
+	}
+
+	function getBasicInfo(data, error) {
+		user_id = data.id;
+		firstName = data.firstName;
+		lastName = data.lastName;
+		title = data.headline;
+		IN.API.Raw("people/~/summary?format=json").result(getSummary);
+	}
+
+	function getSummary(data, error) {
+		summary = data;
+		IN.API.Raw("people/~/picture-url?format=json").result(getPicture);
+	}
+
+	function getPicture(data, error) {
+		//Todo: handle the case where the user has no profile pic
+		pictureUrl = data;
+		displayInfo();
+	}
+
+	function displayInfo() {
+		d3.select("#picture")
+			.append("img")
+			.attr("src", pictureUrl);
+		d3.select("#name")
+			.text(firstName + " " + lastName);
+		d3.select("#title")
+			.text(title);
+		d3.select("#summary")
+			.append("p")
+			.text(summary);
+		d3.select("#submit")
+			.append("button")
+			.attr("type", "button")
+			.text("Submit my mentor profile")
+			.on("click", submitData);
+	}
+
+	function submitData() {
+		data = {
+			"id": user_id,
+			"firstName": firstName,
+			"lastName": lastName,
+			"title": title,
+			"summary": summary,
+			"pictureUrl": pictureUrl
+		};
+
+		d3.request("/mentors")
+			.header("Content-Type", "application/json")
+			.post(JSON.stringify(data), submitMessage);
+	}
+
+	function submitMessage() {
+		d3.select("#submitted")
+			.text("Mentor data submitted");
+	}
+
+</script>
+</html>

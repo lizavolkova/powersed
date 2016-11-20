@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<h1>Powers Education - Student View</h1>
+</head>
+<body>
+	<div id="mentors"></div>
+</body>
+<script>
+	d3.json("/mentors", loadMentors);
+
+	function loadMentors(error, data) {
+		console.log(data);
+
+		mentor = d3.select("#mentors")
+			.selectAll(".profile")
+			.data(data)
+			.enter()
+			.append("div")
+			.attr("class", "profile");
+
+		mentor.append("img")
+			.attr("class", "picture")
+			.attr("src", function(d) { return d.pictureUrl; });
+
+		mentor.append("div")
+			.attr("class", "name")
+			.text(function(d) { return d.firstName + " " + d.lastName; });
+
+		mentor.append("div")
+			.attr("class", "title")
+			.text(function(d) { return d.title; });
+
+		mentor.append("div")
+			.attr("class", "summary")
+			.text(function(d) { return d.summary; });
+	}
+</script>
+</html>
