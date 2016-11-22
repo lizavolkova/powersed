@@ -1,3 +1,45 @@
-#comp-header {
-  background-color: $cl-anakiwa;
+.comp-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+
+  nav.navbar-default {
+    min-height: 70px;
+    margin-bottom: 0;
+
+    .navbar-header {
+      float: left;
+
+      a.navbar-brand {
+        padding: 8px;
+
+        img {
+          width: 100px;
+          height: auto;
+        }
+      }
+    }
+
+    .nav-right-links {
+      float: right;
+
+      ul {
+        
+        li {
+          display: inline-table;
+
+          a {
+
+            .fa {
+              font-size: $ft-size-35;
+            }
+          }
+        }
+      }
+    }
+
+
+  }
 }
+

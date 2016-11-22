@@ -11,7 +11,7 @@
         },
 
         render: function() {
-            console.log('foooter view init');
+            // console.log('foooter view init');
             // this.$el.html(this.template({}));
         }
     })

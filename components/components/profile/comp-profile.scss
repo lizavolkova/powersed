@@ -1,0 +1,86 @@
+.comp-profile {
+
+  .profile-top {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: $cl-bahia;
+    padding-bottom: 30px;
+
+    .profile-img {
+      img {
+        border-radius: 50%;
+        max-width: 40%;
+        height: auto;
+        padding: 15px;
+      }
+    }
+
+    .name {
+      font-size: $ft-size-26;
+      font-weight: bold;
+    }
+
+    .occupation {
+
+    }
+  }
+
+  .profile-bottom {
+    background-color: $cl-white;
+
+    form {
+      margin-bottom: 0;
+
+      .form-group {
+        padding: 10px;
+        border-bottom: 1px solid $cl-rio-grande;
+        margin: 0;
+
+        .control-label {
+          margin-top: 5px;
+          font-weight: normal;
+          font-size: $ft-size-14;
+        }
+
+        input {
+          border-color: $cl-white;
+          box-shadow: none;
+          padding: 20px 12px
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        &.text-area {
+          padding: 15px 15px 25px 15px;
+
+          label {
+            padding-left: 10px;
+          }
+
+          textarea {
+            margin-top: 40px;
+          }
+        }
+
+        &.submit-button {
+          text-align: center;
+          padding: 30px;
+
+          .btn {
+            padding: 15px 40px;
+          }
+        }
+      }
+    }
+
+
+
+
+
+  }
+
+
+}

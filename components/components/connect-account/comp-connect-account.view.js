@@ -1,23 +1,22 @@
 (function (pw) {
     'use strict';
 
-    pw.views.headerView = Backbone.View.extend({
+    pw.views.connectAccountView = Backbone.View.extend({
 
-        $el: $('#header'),
+        template: _.template($("#tpl-connect-account").html()),
 
         /**
          * Initialize
          */
         initialize: function() {
-            this.render();
+            this.$el = $('#content');
         },
 
         /**
          * Render
          */
         render: function() {
-            // console.log('header view init TESTING');
-            // this.$el.html(this.template({}));
+            this.$el.html(this.template({}));
         }
     })
 })(powersed);

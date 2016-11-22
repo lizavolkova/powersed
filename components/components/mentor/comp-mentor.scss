@@ -1,0 +1,81 @@
+.comp-mentors {
+
+  .carousel-control {
+    background-image: none;
+
+    span {
+      display: none;
+    }
+  }
+
+  .comp-mentor {
+    background-color: $cl-bahia;
+    min-height: 600px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .mentor-wrapper {
+      //position: relative;
+      margin: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: $cl-white;
+
+      .img-container {
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .short-content {
+        border-bottom: 1px solid $cl-rio-grande;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+
+        .name {
+          font-size: $ft-size-26;
+          font-weight: bold;
+        }
+
+        .title {
+          font-size: $ft-size-20;
+        }
+
+        .location {
+          color: $cl-grey;
+          font-style: italic;
+
+        }
+
+        .education {
+          color: $cl-grey;
+        }
+      }
+
+      .long-content {
+
+      }
+
+      .connect {
+        text-align: center;
+        padding: 30px;
+
+        .connect-button {
+          background-color: $cl-dodger-blue;
+          padding: 15px 25px;
+          border-radius: 4px;
+          color: $cl-white;
+          text-transform: uppercase;
+          font-size: $ft-size-22;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}

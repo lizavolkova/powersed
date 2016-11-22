@@ -1,9 +1,9 @@
 (function (pw) {
     'use strict';
 
-    pw.views.headerView = Backbone.View.extend({
+    pw.views.singleChatListView = Backbone.View.extend({
 
-        $el: $('#header'),
+        template: _.template($("#tpl-single-chat").html()),
 
         /**
          * Initialize
@@ -14,10 +14,12 @@
 
         /**
          * Render
+         * @returns {pw.views.mentorView}
          */
         render: function() {
-            // console.log('header view init TESTING');
-            // this.$el.html(this.template({}));
+            this.$el.html(this.template(this.model.toJSON()));
+
+            return this;
         }
     })
 })(powersed);

@@ -1,0 +1,58 @@
+.comp-chat {
+  background-color: $cl-white;
+  max-width: 450px;
+  margin: 0 auto;
+
+  .chat-messages {
+    display: table;
+    margin-bottom: 40px;
+
+    .chat-message {
+      width: 89%;
+      background-color: $cl-dodger-blue;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 0 5px 30px 5px;
+      color: $cl-white;
+      float: right;
+
+      &.user-one {
+        background-color: $cl-mercury;
+        color: $cl-black;
+        float: left;
+      }
+    }
+  }
+
+  .message-bar {
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    background-color: $cl-rio-grande;
+    width: 100%;
+    max-width: 450px;
+
+    .form-group {
+      margin-top: 3px;
+      margin-left: -10px;
+
+      label {
+        margin-top: 6px;
+      }
+
+      .send-message-btn {
+        background: #45A2FC;
+        color: white;
+        padding: 6px 20px;
+        margin-top: 5px;
+        border-radius: 5px;
+        margin-left: -11px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+}

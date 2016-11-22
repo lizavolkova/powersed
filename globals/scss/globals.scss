@@ -1,0 +1,28 @@
+html, body {
+  font-size: 16px;
+  background-color: $cl-bahia;
+
+  #content {
+    margin: 72px auto 0 auto;
+    max-width: 1000px;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .btn {
+    padding: 20px 30px;
+    border-radius: 30px;
+    background-color: $cl-bahia;
+    color: $cl-white;
+
+    &:focus {
+      outline: none !important; //important needed to override default bootstrap styles
+     }
+  }
+}

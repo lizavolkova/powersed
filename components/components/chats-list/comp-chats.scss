@@ -1,0 +1,48 @@
+.comp-chats {
+  margin-top: -41px;
+
+  .comp-single-chat {
+    display: flex;
+    background-color: $cl-white;
+    border-bottom: 1px solid $cl-bahia;
+    padding: 15px 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $cl-mercury;
+    }
+
+    .profile-img {
+      float: left;
+      width: 80px;
+      display: table-cell;
+
+      img {
+        border-radius: 50%;
+        max-width: 60px;
+        margin: 10px;
+      }
+    }
+
+    .chat-info {
+      float: right;
+      display: table-cell;
+      width: 100%;
+      padding-right: 15px;
+
+      .header {
+        height: 30px;
+
+        .name {
+          font-weight: bold;
+        }
+      }
+
+      .body {
+        color: $cl-grey;
+      }
+
+    }
+  }
+}
+
