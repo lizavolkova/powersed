@@ -57,7 +57,6 @@ var app = (function(pw) {
         },
 
         home: function() {
-            console.log('home page');
             ViewsFactory.views.mentorsView.fetchData();
         },
 

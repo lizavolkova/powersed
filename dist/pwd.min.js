@@ -18,7 +18,7 @@ powersed.routers = powersed.routers || {};
  * This should eventually be created dynamically, not manually
  * @type {string[]}
  */
-globals.views = ['headerView', 'footerView', 'profileView', 'chatsListView', 'mentorsView', 'connectAccountView', 'singleChatView'];
+globals.views = ['form', 'headerView', 'footerView', 'profileView', 'chatsListView', 'mentorsView', 'connectAccountView', 'singleChatView'];
 
 /**
  * All api urls
@@ -52,6 +52,27 @@ globals.api = {
 (function (pw) {
     'use strict';
 
+    pw.views.form = Backbone.View.extend({
+
+        initialize: function() {
+
+        },
+
+
+        addErrorToField: function($field) {
+            $field.addClass('error');
+        },
+
+        removeErrorFromField: function($field) {
+            $field.removeClass('error');
+        }
+
+
+    })
+})(powersed);
+(function (pw) {
+    'use strict';
+
     pw.views.headerView = Backbone.View.extend({
 
         $el: $('#header'),
@@ -69,145 +90,6 @@ globals.api = {
         render: function() {
             // console.log('header view init TESTING');
             // this.$el.html(this.template({}));
-        }
-    })
-})(powersed);
-(function (pw) {
-    'use strict';
-
-    pw.views.connectAccountView = Backbone.View.extend({
-
-        template: _.template($("#tpl-connect-account").html()),
-
-        /**
-         * Initialize
-         */
-        initialize: function() {
-            this.$el = $('#content');
-        },
-
-        /**
-         * Render
-         */
-        render: function() {
-            this.$el.html(this.template({}));
-        }
-    })
-})(powersed);
-(function (pw) {
-    'use strict';
-
-    pw.models.mentorModel = Backbone.Model.extend({
-        defaults: {
-            pictureUrl: 'dist/images/profile-placeholder.png'
-        },
-
-        /**
-         * Parse api response
-         * @param {Object} resposne
-         * @returns {*}
-         */
-        parse: function(mentor) {
-            console.log(this);
-
-            if ($.trim(mentor.pictureUrl).length === 0) {
-                mentor.pictureUrl = this.defaults.pictureUrl;
-            }
-
-            return mentor;
-        }
-    })
-
-})(powersed);
-(function (pw) {
-    'use strict';
-
-    pw.collections.mentorCollections = Backbone.Collection.extend({
-        url: globals.api.getMentors,
-        model: pw.models.mentorModel
-    })
-})(powersed);
-(function (pw) {
-    'use strict';
-
-    pw.views.mentorsView = Backbone.View.extend({
-
-        /**
-         * Initialize
-         */
-        initialize: function() {
-            this.$el = $('#content');
-            this.$carousel = $('.carousel');
-            this.$carouselItemContainer = $('.carousel-inner');
-            this.collection = new pw.collections.mentorCollections();
-        },
-
-        fetchData: function() {
-            this.collection.fetch().done(function() {
-                this.render();
-            }.bind(this));
-        },
-
-        /**
-         * Render
-         */
-        render: function() {
-            console.log('mentors render');
-            this.$el.empty();
-            this.$carouselItemContainer.empty();
-
-            _.each(this.collection.models, function(mentor, i) {
-                var aciveClass = i === 0 ? 'active' : '';
-
-                var mentorView = new pw.views.mentorView({
-                    model: mentor,
-
-                    className: 'item comp-mentor ' + aciveClass
-                });
-
-                this.$carouselItemContainer.append(mentorView.render().el);
-            }.bind(this));
-
-            this.$el.append(this.$carousel);
-
-            $(".carousel-inner").swipe( {
-                //Generic swipe handler for all directions
-                swipeLeft:function(event, direction, distance, duration, fingerCount) {
-                    console.log('swipe left');
-                    $(this).parent().carousel('prev');
-                },
-                swipeRight: function() {
-                    console.log('swipe right');
-                    $(this).parent().carousel('next');
-                },
-                //Default is 75px, set to 0 for demo so any distance triggers swipe
-                threshold:0
-            });
-        }
-    })
-})(powersed);
-(function (pw) {
-    'use strict';
-
-    pw.views.mentorView = Backbone.View.extend({
-
-        template: _.template($("#tpl-mentor").html()),
-
-        /**
-         * Initialize
-         */
-        initialize: function() {
-            this.render();
-        },
-
-        /**
-         * Render
-         * @returns {pw.views.mentorView}
-         */
-        render: function() {
-            this.$el.html(this.template(this.model.toJSON()));
-
-            return this;
         }
     })
 })(powersed);
@@ -284,7 +166,7 @@ globals.api = {
          */
         openChat: function(e) {
             e.preventDefault();
-            app.router.navigate('chat');
+            app.router.navigate('chat', {trigger: true});
         },
 
         /**
@@ -329,6 +211,28 @@ globals.api = {
             this.$el.html(this.template(this.model.toJSON()));
 
             return this;
+        }
+    })
+})(powersed);
+(function (pw) {
+    'use strict';
+
+    pw.views.connectAccountView = Backbone.View.extend({
+
+        template: _.template($("#tpl-connect-account").html()),
+
+        /**
+         * Initialize
+         */
+        initialize: function() {
+            this.$el = $('#content');
+        },
+
+        /**
+         * Render
+         */
+        render: function() {
+            this.$el.html(this.template({}));
         }
     })
 })(powersed);
@@ -425,7 +329,7 @@ globals.api = {
 (function (pw) {
     'use strict';
 
-    pw.views.singleChatView = Backbone.View.extend({
+    pw.views.singleChatView =  Backbone.View.extend({
 
         el: '.comp-chat',
 
@@ -461,14 +365,17 @@ globals.api = {
          * @param e
          */
         sendChat: function(e) {
-            console.log('click!');
             e.preventDefault();
             var newMessageText = this.$messageInput.val();
 
-            this.collection.add({
-                timestamp: new Date(),
-                message: newMessageText
-            });
+            if ($.trim(newMessageText).length === 0) {
+                this.addErrorToField(this.$messageInput)
+            } else {
+                this.collection.add({
+                    timestamp: new Date(),
+                    message: newMessageText
+                });
+            }
         },
 
         /**
@@ -488,8 +395,131 @@ globals.api = {
             }.bind(this));
 
             this.$content.append(this.el);
+            $(this.el).removeClass('hide');
             window.scrollTo(0,document.body.scrollHeight);
             this.setElement($('.comp-chat'));
+        }
+    })
+})(powersed);
+(function (pw) {
+    'use strict';
+
+    pw.models.mentorModel = Backbone.Model.extend({
+        defaults: {
+            pictureUrl: 'dist/images/profile-placeholder.png'
+        },
+
+        /**
+         * Parse api response
+         * @param {Object} resposne
+         * @returns {*}
+         */
+        parse: function(mentor) {
+            if ($.trim(mentor.pictureUrl).length === 0) {
+                mentor.pictureUrl = this.defaults.pictureUrl;
+            }
+
+            return mentor;
+        }
+    })
+
+})(powersed);
+(function (pw) {
+    'use strict';
+
+    pw.collections.mentorCollections = Backbone.Collection.extend({
+        url: globals.api.getMentors,
+        model: pw.models.mentorModel
+    })
+})(powersed);
+(function (pw) {
+    'use strict';
+
+    pw.views.mentorsView = Backbone.View.extend({
+        /**
+         * Initialize
+         */
+        initialize: function() {
+            this.$el = $('#content');
+            this.$carousel = $('.carousel');
+            this.collection = new pw.collections.mentorCollections();
+            this.isSliderInitialized = false;
+        },
+
+        fetchData: function() {
+            if (this.isSliderInitialized) {
+                this.$carousel.slick('unslick');
+            }
+
+            this.collection.fetch().done(function() {
+                this.render();
+            }.bind(this));
+        },
+
+        /**
+         * Render
+         */
+        render: function() {
+            this.$el.empty();
+            this.$carousel.empty();
+
+
+            _.each(this.collection.models, function(mentor, i) {
+
+                var mentorView = new pw.views.mentorView({
+                    model: mentor,
+
+                    className: 'comp-mentor'
+                });
+
+                this.$carousel.append(mentorView.render().el);
+            }.bind(this));
+
+            this.$el.append(this.$carousel);
+
+            //on slider init
+            this.$carousel.on('init', function() {
+                this.isSliderInitialized = true;
+            }.bind(this));
+
+            //on slider destroy
+            this.$carousel.on('destroy', function() {
+                this.isSliderInitialized = false;
+            }.bind(this));
+
+            //initialize slider
+            this.$carousel.slick({
+                infinite: true,
+                slidesToShow: 1,
+                // adaptiveHeight: true,
+                arrows: false
+            });
+
+        }
+    })
+})(powersed);
+(function (pw) {
+    'use strict';
+
+    pw.views.mentorView = Backbone.View.extend({
+
+        template: _.template($("#tpl-mentor").html()),
+
+        /**
+         * Initialize
+         */
+        initialize: function() {
+            this.render();
+        },
+
+        /**
+         * Render
+         * @returns {pw.views.mentorView}
+         */
+        render: function() {
+            this.$el.html(this.template(this.model.toJSON()));
+
+            return this;
         }
     })
 })(powersed);
@@ -552,7 +582,6 @@ var app = (function(pw) {
         },
 
         home: function() {
-            console.log('home page');
             ViewsFactory.views.mentorsView.fetchData();
         },
 

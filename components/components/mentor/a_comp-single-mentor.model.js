@@ -12,8 +12,6 @@
          * @returns {*}
          */
         parse: function(mentor) {
-            console.log(this);
-
             if ($.trim(mentor.pictureUrl).length === 0) {
                 mentor.pictureUrl = this.defaults.pictureUrl;
             }

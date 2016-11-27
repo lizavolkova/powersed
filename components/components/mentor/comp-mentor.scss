@@ -1,4 +1,7 @@
 .comp-mentors {
+  max-width: 500px;
+  //min-height: 600px;
+  margin: 0 auto;
 
   .carousel-control {
     background-image: none;
@@ -10,7 +13,7 @@
 
   .comp-mentor {
     background-color: $cl-bahia;
-    min-height: 600px;
+    height: 1200px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;

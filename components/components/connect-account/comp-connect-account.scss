@@ -1,35 +1,38 @@
 .comp-connect-account {
   top: 0;
+  left: 0;
   position: absolute;
   z-index: 200;
   background: $cl-white;
   width: 100%;
   height: 100%;
 
-  .logo {
-    text-align: center;
-    margin-top: 40%;
+  .connect-container {
+    max-width: 500px;
+    margin: 0 auto;
 
-    img {
-      width: 40%;
-      height: auto;
+    .logo {
+      text-align: center;
+      margin-top: 40%;
+
+      img {
+        width: 40%;
+        height: auto;
+      }
+
     }
 
-  }
+    .connect-buttons {
+      padding: 50px;
+      text-align: center;
 
-  .connect-buttons {
-    padding: 50px;
-    text-align: center;
+      a.btn {
+        padding: 20px 30px;
 
-    a.btn {
-      padding: 20px 30px;
-
-      .fa {
-        padding-right: 25px;
+        .fa {
+          padding-right: 25px;
+        }
       }
     }
   }
-
-
-
 }

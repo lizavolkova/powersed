@@ -1,3 +1,44 @@
+<!--<div id="carousel-example-generic" class="carousel slide comp-mentors" data-ride="carousel" data-interval="false">-->
+
+    <!--&lt;!&ndash; Wrapper for slides &ndash;&gt;-->
+    <!--<div class="carousel-inner" role="listbox">-->
+
+    <!--</div>-->
+
+    <!--&lt;!&ndash; Controls &ndash;&gt;-->
+    <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">-->
+        <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+        <!--<span class="sr-only">Previous</span>-->
+    <!--</a>-->
+    <!--<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">-->
+        <!--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+        <!--<span class="sr-only">Next</span>-->
+    <!--</a>-->
+<!--</div>-->
+
+<div class="carousel mentor-slider comp-mentors">
+
+</div>
+
+<script type="text/template" id="tpl-mentor">
+        <div class="mentor-wrapper">
+            <div class="img-container">
+                <img src="<%= pictureUrl %>" alt="">
+            </div>
+            <div class="short-content">
+                <div class="name"><%= firstName %>&nbsp;<%= lastName %></div>
+                <div class="title"><%= title %></div>
+                <div class="location"><%= location %></div>
+                <div class="education"><%= education %></div>
+            </div>
+            <div class="long-content">
+                <%= summary %>
+            </div>
+            <div class="connect">
+                <a href="#" class="connect-button">connect</a>
+            </div>
+        </div>
+</script>
 
 <div class="comp-chats">
 
@@ -17,19 +58,6 @@
             <div class="body">
                 <%= chatCopy %>
             </div>
-        </div>
-    </div>
-</script>
-
-<script type="text/template" id="tpl-connect-account">
-    <div class="comp-connect-account">
-        <div class="logo">
-            <img src="<?php echo $url ?>/dist/images/logo.png" alt="">
-        </div>
-        <div class="connect-buttons">
-            <a href="#/home" class="connect-linked-in btn btn-default">
-                <i class="fa fa-linkedin-square" aria-hidden="true"></i> Connect with LinkedIn
-            </a>
         </div>
     </div>
 </script>
@@ -88,7 +116,7 @@
     </div>
 </script>
 
-<div class="comp-chat">
+<div class="comp-chat hide">
     <div class="chat-messages">
 
     </div>
@@ -108,39 +136,18 @@
 <script type="text/template" id="tpl-chat-message">
         <%= message %>
 </script>
-<div id="carousel-example-generic" class="carousel slide comp-mentors" data-ride="carousel" data-interval="false">
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-    </div>
-
-    <!-- Controls -->
-    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-<script type="text/template" id="tpl-mentor">
-        <div class="mentor-wrapper">
-            <div class="img-container">
-                <img src="<%= pictureUrl %>" alt="">
+<script type="text/template" id="tpl-connect-account">
+    <div class="comp-connect-account">
+        <div class="connect-container">
+            <div class="logo">
+                <img src="<?php echo $url ?>/dist/images/logo.png" alt="">
             </div>
-            <div class="short-content">
-                <div class="name"><%= firstName %>&nbsp;<%= lastName %></div>
-                <div class="title"><%= title %></div>
-                <div class="location"><%= location %></div>
-                <div class="education"><%= education %></div>
-            </div>
-            <div class="long-content">
-                <%= summary %>
-            </div>
-            <div class="connect">
-                <a href="#" class="connect-button">connect</a>
+            <div class="connect-buttons">
+                <a href="#/home" class="connect-linked-in btn btn-default">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i> Connect with LinkedIn
+                </a>
             </div>
         </div>
+
+    </div>
 </script>

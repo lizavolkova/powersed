@@ -1,4 +1,4 @@
-<div class="comp-chat">
+<div class="comp-chat hide">
     <div class="chat-messages">
 
     </div>

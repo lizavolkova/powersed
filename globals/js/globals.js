@@ -18,7 +18,7 @@ powersed.routers = powersed.routers || {};
  * This should eventually be created dynamically, not manually
  * @type {string[]}
  */
-globals.views = ['headerView', 'footerView', 'profileView', 'chatsListView', 'mentorsView', 'connectAccountView', 'singleChatView'];
+globals.views = ['form', 'headerView', 'footerView', 'profileView', 'chatsListView', 'mentorsView', 'connectAccountView', 'singleChatView'];
 
 /**
  * All api urls

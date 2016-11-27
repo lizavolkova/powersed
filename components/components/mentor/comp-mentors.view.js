@@ -2,18 +2,21 @@
     'use strict';
 
     pw.views.mentorsView = Backbone.View.extend({
-
         /**
          * Initialize
          */
         initialize: function() {
             this.$el = $('#content');
             this.$carousel = $('.carousel');
-            this.$carouselItemContainer = $('.carousel-inner');
             this.collection = new pw.collections.mentorCollections();
+            this.isSliderInitialized = false;
         },
 
         fetchData: function() {
+            if (this.isSliderInitialized) {
+                this.$carousel.slick('unslick');
+            }
+
             this.collection.fetch().done(function() {
                 this.render();
             }.bind(this));
@@ -23,37 +26,41 @@
          * Render
          */
         render: function() {
-            console.log('mentors render');
             this.$el.empty();
-            this.$carouselItemContainer.empty();
+            this.$carousel.empty();
+
 
             _.each(this.collection.models, function(mentor, i) {
-                var aciveClass = i === 0 ? 'active' : '';
 
                 var mentorView = new pw.views.mentorView({
                     model: mentor,
 
-                    className: 'item comp-mentor ' + aciveClass
+                    className: 'comp-mentor'
                 });
 
-                this.$carouselItemContainer.append(mentorView.render().el);
+                this.$carousel.append(mentorView.render().el);
             }.bind(this));
 
             this.$el.append(this.$carousel);
 
-            $(".carousel-inner").swipe( {
-                //Generic swipe handler for all directions
-                swipeLeft:function(event, direction, distance, duration, fingerCount) {
-                    console.log('swipe left');
-                    $(this).parent().carousel('prev');
-                },
-                swipeRight: function() {
-                    console.log('swipe right');
-                    $(this).parent().carousel('next');
-                },
-                //Default is 75px, set to 0 for demo so any distance triggers swipe
-                threshold:0
+            //on slider init
+            this.$carousel.on('init', function() {
+                this.isSliderInitialized = true;
+            }.bind(this));
+
+            //on slider destroy
+            this.$carousel.on('destroy', function() {
+                this.isSliderInitialized = false;
+            }.bind(this));
+
+            //initialize slider
+            this.$carousel.slick({
+                infinite: true,
+                slidesToShow: 1,
+                // adaptiveHeight: true,
+                arrows: false
             });
+
         }
     })
 })(powersed);

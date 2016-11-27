@@ -33,7 +33,7 @@
          */
         openChat: function(e) {
             e.preventDefault();
-            app.router.navigate('chat');
+            app.router.navigate('chat', {trigger: true});
         },
 
         /**

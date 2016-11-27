@@ -1,7 +1,7 @@
 (function (pw) {
     'use strict';
 
-    pw.views.singleChatView = Backbone.View.extend({
+    pw.views.singleChatView =  Backbone.View.extend({
 
         el: '.comp-chat',
 
@@ -37,14 +37,17 @@
          * @param e
          */
         sendChat: function(e) {
-            console.log('click!');
             e.preventDefault();
             var newMessageText = this.$messageInput.val();
 
-            this.collection.add({
-                timestamp: new Date(),
-                message: newMessageText
-            });
+            if ($.trim(newMessageText).length === 0) {
+                this.addErrorToField(this.$messageInput)
+            } else {
+                this.collection.add({
+                    timestamp: new Date(),
+                    message: newMessageText
+                });
+            }
         },
 
         /**
@@ -64,6 +67,7 @@
             }.bind(this));
 
             this.$content.append(this.el);
+            $(this.el).removeClass('hide');
             window.scrollTo(0,document.body.scrollHeight);
             this.setElement($('.comp-chat'));
         }
